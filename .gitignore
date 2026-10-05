@@ -81,7 +81,8 @@ mono_crash.*
 crashlytics-build.properties
 
 # TestRunner generated files
-InitTestScene*.unity*
+InitTestScene* 
+#.unity*
 
 # Addressables default ignores, before user customizations
 /ServerData
@@ -100,7 +101,8 @@ InitTestScene*.unity*
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
 
 # Auto-generated scenes by play mode tests
-#/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*
+#.unity*
 
 # UI Toolkit auto generated files
 /UIElementsSchema/
