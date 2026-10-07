@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Update() 
     {
         
-        feet.transform.position = transform.position - new Vector3(0,1f,0);
+        feet.transform.position = transform.position - new Vector3(0,0.726f,0);
         if (Input.GetKey(KeyCode.D)){transform.Translate(0.01f*speedmult,0,0);}
         if(Input.GetKey(KeyCode.A)){transform.Translate(-0.01f*speedmult,0,0);}
         if(Input.GetKeyDown(KeyCode.Space)&&onfloor){rigb.AddForce(Vector2.up*300); onfloor = false; }
