@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D box;
     public GameObject attackPF;
     public GameObject feet;
+    public int jumps;
     void Start()
     {
        rigb = GetComponent<Rigidbody2D>();
@@ -24,15 +25,18 @@ public class PlayerController : MonoBehaviour
     public bool onfloor = true;
     void Update() 
     {
-        
-        feet.transform.position = transform.position - new Vector3(0,0.726f,0);
+       
+        feet.transform.position = transform.position - new Vector3(0,0.52f,0);
         if (Input.GetKey(KeyCode.D)){transform.Translate(0.01f*speedmult,0,0);}
         if(Input.GetKey(KeyCode.A)){transform.Translate(-0.01f*speedmult,0,0);}
-        if(Input.GetKeyDown(KeyCode.Space)&&onfloor){rigb.AddForce(Vector2.up*300); onfloor = false; }
-        if (Input.GetMouseButtonDown(0)) {Debug.Log("MS"); Instantiate(attackPF, transform.position, transform.rotation); }
+        if(Input.GetKeyDown(KeyCode.Space)&&(onfloor||jumps>0)){rigb.AddForce(Vector2.up*300); onfloor = false; jumps--; }
+        if (Input.GetMouseButtonDown(0)) { Debug.Log("MS"); Instantiate(attackPF, transform.position, transform.rotation); }
+        if (rigb.totalForce.y >= 5){ rigb.AddForce(Vector2.down*30);Debug.Log("sd"); }
+                    
+    
     }
 
-    public void Floor() { onfloor = true; }
+    public void Floor() { onfloor = true; jumps = 2; }
         
 }
 

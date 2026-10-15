@@ -18,8 +18,10 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
     private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
-    { parent.Floor();}
+    {if(collision.otherCollider.gameObject!=parent){parent.Floor();}}
+
+
 }
