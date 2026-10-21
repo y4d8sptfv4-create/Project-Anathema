@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D box;
     public GameObject attackPF;
     public GameObject feet;
-    public int jumps;
     void Start()
     {
        rigb = GetComponent<Rigidbody2D>();
@@ -25,7 +24,6 @@ public class PlayerController : MonoBehaviour
     public float speedmult = 1f;
     private float temp;
     private int facing;
-    public int div;
     public bool onfloor = true;
     void Update() 
     {
@@ -34,7 +32,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.A)){transform.Translate(-0.01f*speedmult,0,0);facing = -1; }
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) { speedmult = temp + 0.25f; }
         else { speedmult = temp; }
-        if (Input.GetKeyDown(KeyCode.Space)) {rigb.AddForce(Vector2.up * 300 / div);onfloor = false;}
+        if (Input.GetKeyDown(KeyCode.Space) && onfloor) {rigb.AddForce(Vector2.up * 300);onfloor = false;}
         if (Input.GetMouseButtonDown(0)) {Instantiate(attackPF, new Vector3(transform.position.x+facing, transform.position.y, transform.position.z), transform.rotation); }
         
                     
