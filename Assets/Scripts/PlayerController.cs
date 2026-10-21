@@ -34,14 +34,14 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.A)){transform.Translate(-0.01f*speedmult,0,0);facing = -1; }
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) { speedmult = temp + 0.25f; }
         else { speedmult = temp; }
-        if (Input.GetKeyDown(KeyCode.Space) && (onfloor || jumps > 0)) {rigb.AddForce(Vector2.up * 300 / div);onfloor = false;jumps--;div++;}
+        if (Input.GetKeyDown(KeyCode.Space)) {rigb.AddForce(Vector2.up * 300 / div);onfloor = false;}
         if (Input.GetMouseButtonDown(0)) {Instantiate(attackPF, new Vector3(transform.position.x+facing, transform.position.y, transform.position.z), transform.rotation); }
         
                     
     
     }
 
-    public void Floor() { onfloor = true; jumps = 2; div = 1; }
+    public void Floor() { onfloor = true;}
         
 }
 
