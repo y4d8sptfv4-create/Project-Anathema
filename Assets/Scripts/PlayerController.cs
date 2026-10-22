@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         feet.transform.position = transform.position - new Vector3(0,0.52f,0);
         if (Input.GetKey(KeyCode.D)){transform.Translate(0.01f*speedmult,0,0);facing = 1;  }
         if(Input.GetKey(KeyCode.A)){transform.Translate(-0.01f*speedmult,0,0);facing = -1; }
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) { speedmult = temp + 0.25f; }
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) { speedmult = temp + 0.50f; }
         else { speedmult = temp; }
         if (Input.GetKeyDown(KeyCode.Space) && onfloor) {rigb.AddForce(Vector2.up * 300);onfloor = false;}
         if (Input.GetMouseButtonDown(0)) {Instantiate(attackPF, new Vector3(transform.position.x+facing, transform.position.y, transform.position.z), transform.rotation); }
